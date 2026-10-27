@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { readFile } from 'node:fs/promises';
+import Joi from 'joi';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -11,6 +12,19 @@ export const loginRouter = Router();
 
 //Login → génère le JWT
 loginRouter.post('/login', async (req: Request, res: Response) => {
+  const schema = Joi.object({
+      name: Joi.string().alphanum().min(3).max(30).required(),
+      password: Joi.string().alphanum().min(1).max(30).required()
+  });
+
+  const { error, value } = schema.validate({
+    name: req.body.name,
+    password: req.body.password,
+  });
+  if (error) {
+    return res.status(400).json({ error: error.details[0].message });
+  }
+  
   const { username, password } = req.body;
 
   //Creation du chemin du du fichier users.json
