@@ -1,32 +1,33 @@
 [
   {
-    "id": 6,
-    "name": "Talia",
-    "city": "Rac"
+    "id": 1,
+    "name": "Client1",
+    "password": "1",
+    "role": "client"
+  },
+  {
+    "id": 2,
+    "name": "Manager1",
+    "password": "2",
+    "role": "manager"
   },
   {
     "id": 3,
-    "name": "Piumpium",
-    "city": "Tryon"
+    "name": "Admin",
+    "password": "a",
+    "role": "administrateur"
   },
   {
     "id": 4,
-    "name": "Pupuce",
-    "city": "Rac"
+    "name": "Client2",
+    "password": "4",
+    "role": "client"
   },
   {
     "id": 5,
-    "name": "Talia",
-    "city": "Rac"
-  },
-  {
-    "name": "Grisb",
-    "city": "War"
-  },
-  {
-    "id": 7,
-    "name": "Toto",
-    "city": "Aud"
+    "name": "Manager2",
+    "password": "5",
+    "role": "manager"
   },
   {
     "id": 8,

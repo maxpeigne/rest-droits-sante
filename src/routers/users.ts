@@ -53,7 +53,7 @@ usersRouter.delete('/deluser/:id', requireAuth, async (req: Request, res: Respon
   try {
     const users = JSON.parse(await readFile(usersFile, 'utf-8'));
 
-    const index = users.findIndex(u => u.id === Number(req.params.id));
+    const index = users.findIndex((u: { id: number; }) => u.id === Number(req.params.id));
     if (index === -1) {
       return res.status(404).send({ error: 'User non trouvé' });
     }
@@ -73,7 +73,7 @@ usersRouter.put('/updateuser/:id', requireAuth, async (req: Request, res: Respon
     const users = JSON.parse(await readFile(usersFile, 'utf-8'));
 
     // 1. Retrouver le user par son id (id ≠ index, comme pour le DELETE)
-    const index = users.findIndex(u => u.id === Number(req.params.id));
+    const index = users.findIndex((u: { id: number; }) => u.id === Number(req.params.id));
     if (index === -1) {
       return res.status(404).send({ error: 'User non trouvé' });
     }
